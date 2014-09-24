@@ -3,12 +3,13 @@ require "currency"
 
 class CurrencyTest < MiniTest::Unit::TestCase
   def test_amount_and_currency_code
-    currency_test = Currency.new("50", "USD")
-    assert equal, 
-    refute_nil.currency
+    money = Currency.new(50, "NZD")
+    assert_equal 50, money.amount
+    assert_equal "NZD", money.currency
   end
-end
 
+
+end
 # Should be created with an amount and a currency code
 # Should equal another Currency object with the same amount and currency code
 # Should be able to be added to another Currency object with the same currency code
