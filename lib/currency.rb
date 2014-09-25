@@ -1,3 +1,6 @@
+class DifferentCurrencyCodeError < ArgumentError
+end
+
 class Currency
   def initialize (amount, code)
     @amount = amount
@@ -12,11 +15,25 @@ class Currency
     @code
   end
 
-  def <=> (item_to_compare)
-    if @code == item_to_compare.code
-    @amount <=> item_to_compare.amount
+  def == (other)
+    if @code == other.code && @amount == other.amount
+      true            #what good does this do
+    end
+  end
+
+  def add_values
+    if self.code != another_code
+      raise DifferentCurrencyCodeError, "Incompatible currency codes!"
     else
-    return nil
+      return Currency.new((self.amount + add_values.amount), self.code)
+    end
+  end
+
+  def subtract_values
+    if self.code != another_code
+      raise DifferentCurrencyCodeError, "Incompatible currency codes!"
+    else
+      return Currency.new((self.amount - add_values.amount), self.code)
     end
   end
 end
