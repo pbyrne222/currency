@@ -1,7 +1,7 @@
 require "minitest/autorun"
 require "currency"
 
-class CurrencyTest < MiniTest::Unit::TestCase
+class CurrencyConverterTest < MiniTest::Unit::TestCase
   def test_first_test
   end
 end
